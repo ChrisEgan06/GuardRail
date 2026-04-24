@@ -1,6 +1,7 @@
 import numpy as np
 from openai import OpenAI
 import matplotlib.pyplot as plt
+import argparse
 
 # Any similarity bellow this is regarded as random and disgarded
 NOISE_FLOOR = 0.18
@@ -171,7 +172,7 @@ try:
 
 
             if pos_score > 0.75:
-                raw_sim = max(0, raw_sim - pos_score * 0.8) -
+                raw_sim = max(0, raw_sim - pos_score * 0.8)
 
             # Apply noise filter
             sim = raw_sim if raw_sim > NOISE_FLOOR else 0
